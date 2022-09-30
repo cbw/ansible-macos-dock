@@ -4,8 +4,8 @@
   when: DEBUG | d() | bool
 
 - name: Install dockutil
-  community.general.homebrew:
-        name: dockutil
+  community.general.homebrew_cask:
+        name: hpedrorodrigues/tools/dockutil
         state: present
 
 - include_tasks: reset.yml
