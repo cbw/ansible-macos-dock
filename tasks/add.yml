@@ -25,11 +25,12 @@
   when: not macos_dock_index.stdout and (item.view is undefined) and (item.display is undefined) and (item.url is undefined)
 
 - name: "Adding '{{ item.label }}' as folder to dock"
-  shell: "dockutil --add '{{ item.path }}' --label '{{ item.label }}' --view {{ item.view }} --display {{ item.display }} --no-restart"
-  when: not macos_dock_index.stdout and (item.view is defined) and (item.display is defined) and (item.url is undefined)
+  shell: "dockutil --add '{{ item.path }}' --label '{{ item.label }}' --view {{ item.view }} --display {{ item.display }} --sort {{ item.sort }} --no-restart"
+  when: not macos_dock_index.stdout and (item.view is defined) and (item.display is defined) and (item.sort is defined) and (item.url is undefined)
   failed_when:
     - item.view not in [ 'grid', 'fan', 'list', 'auto' ]
     - item.display not in [ 'folder', 'stack' ]
+    - item.sort not in [ 'name', 'dateadded', 'datemodified', 'datecreated', 'kind' ]
 
 - name: "Adding '{{ item.label }}' as URL to dock"
   shell: "dockutil --add '{{ item.url }}' --label '{{ item.label }}' --no-restart"

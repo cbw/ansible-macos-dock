@@ -25,8 +25,8 @@ macos_dock:
   folder:
     add: []
     # [
-    #   { label: "Documents", path: "~/Documents", view: "grid", display: "folder", pos: 1 },
-    #   { label: "Music", path: "~/Music", view: "list", display: "stack", pos: 2 }
+    #   { label: "Documents", path: "~/Documents", view: "grid", display: "folder", sort: "name", pos: 1 },
+    #   { label: "Music", path: "~/Music", view: "list", display: "stack", sort: "dateadded", pos: 2 }
     # ]
     remove: []
     # [
